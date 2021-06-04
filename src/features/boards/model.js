@@ -1,0 +1,4 @@
+
+export const boards = {
+  boards:[]
+}

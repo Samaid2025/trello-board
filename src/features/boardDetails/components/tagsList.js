@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Chip from '@material-ui/core/Chip';
 import Avatar from '@material-ui/core/Avatar';
 
@@ -19,6 +20,10 @@ const TagsList = ({labels}) => {
     }
     </>
   )
+}
+
+TagsList.propTypes = {
+  labels: PropTypes.array
 }
 
 export default TagsList;

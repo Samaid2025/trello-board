@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { Formik, Field, Form } from 'formik';
 import Button from '@material-ui/core/Button';
@@ -138,7 +139,9 @@ const CardPopup = ({
                       Cancel
                     </Button>
                     <Button type="submit" color="primary">
-                      Create
+                      {
+                        isAdding ? 'Create' : 'Update'
+                      }
                     </Button>
                   </DialogActions>
                 </Form>
@@ -149,6 +152,16 @@ const CardPopup = ({
       </Dialog>
     </>
   )
+}
+
+CardPopup.propTypes = {
+  columnId: PropTypes.string,
+  boardId: PropTypes.string,
+  card: PropTypes.shape({
+    id: PropTypes.string,
+    name: PropTypes.string,
+    description: PropTypes.string
+  })
 }
 
 export default CardPopup;

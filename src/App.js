@@ -14,6 +14,7 @@ function App() {
   return (
     <>
       <Header />
+      <div className="App">
       <Router>
         <Switch>
           <Route path="/board">
@@ -24,6 +25,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      </div>
     </>
   );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Formik, Field, Form } from 'formik';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -116,6 +117,13 @@ const AddBoardPopup = ({
       </Dialog>
     </>
   )
+}
+
+AddBoardPopup.propTypes = {
+  handleSubmit: PropTypes.func,
+  buttonLabel: PropTypes.string,
+  popUpHeading: PropTypes.string,
+  isBoardPopup: PropTypes.bool
 }
 
 export default AddBoardPopup;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Cards from '@material-ui/core/Card';
@@ -57,6 +58,18 @@ const Card = ({
     )}
   </Draggable>
 )
+}
+
+Card.propTypes = {
+  card: PropTypes.shape({
+    id: PropTypes.string,
+    name: PropTypes.string,
+    description: PropTypes.string
+  }),
+  index: PropTypes.number,
+  columnId: PropTypes.string,
+  boardId: PropTypes.string,
+  handleAddCard: PropTypes.func
 }
 
 export default Card;

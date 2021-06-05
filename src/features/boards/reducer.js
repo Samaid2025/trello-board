@@ -167,6 +167,8 @@ export default function boardReducer(state = initialState, action) {
             ...board,
             columns:updatedColumns
           }
+            }else{
+              return board
             }
           })
           return {

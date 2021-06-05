@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
@@ -15,6 +16,16 @@ import TagsList from './tagsList';
 const useStyles = makeStyles({
   root: {
     minWidth: 250,
+    minHeight: 400,
+  },
+  container:{
+    display: 'flex',
+    flexDirection: 'column',
+    margin: '8px'
+  },
+  list:{
+    flexGrow: '1',
+    minHeight: '500px'
   },
   tags: {
     display: 'flex',
@@ -53,6 +64,7 @@ const Column = ({
         {(provided, snapshot) => (
           <Grid
             container
+            className={classes.container}
             spacing={3}
             innerRef={provided.innerRef}
             {...provided.droppableProps}
@@ -68,9 +80,11 @@ const Column = ({
                 <div className={classes.tags}>
                   <TagsList labels={column.labels}/>
                 </div>
+                <div className={classes.list}>
                 {column.cards.map((card, index) => (
                   <TaskCard key={card.id} card={card} index={index} handleAddCard={handleAddCard} columnId={column.id} boardId={boardId} />
                 ))}
+                </div>
               </CardContent>
             </Card>
             {provided.placeholder}
@@ -79,6 +93,17 @@ const Column = ({
       </Droppable>
     </Grid>
   )
+}
+
+Column.propTypes = {
+  column: PropTypes.shape({
+    id: PropTypes.string,
+    name: PropTypes.string,
+    card: PropTypes.array
+  }),
+  boardId: PropTypes.string,
+  handleAddCard: PropTypes.func,
+  handleAddLabel: PropTypes.func
 }
 
 export default Column;

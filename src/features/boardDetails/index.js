@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -96,6 +97,15 @@ const BoardDetails = (props) => {
       </Grid>
     </>
   )
+}
+
+BoardDetails.propTypes = {
+  board: PropTypes.shape({
+    id: PropTypes.string,
+    name: PropTypes.string,
+    columns: PropTypes.array,
+    labels: PropTypes.array
+  })
 }
 
 export default BoardDetails

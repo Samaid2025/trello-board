@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -16,7 +17,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function Board(props) {
+function Board(props) {
   const {board:{name}, handleBoardItemClick} = props;
   const classes = useStyles();
 
@@ -33,3 +34,12 @@ export default function Board(props) {
     </Grid>
   );
 }
+
+Board.propTypes = {
+  board: PropTypes.shape({
+    name: PropTypes.string,
+    handleBoardItemClick: PropTypes.func
+  })
+}
+
+export default Board;

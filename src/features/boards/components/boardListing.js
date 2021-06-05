@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Board from './boardItem';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -39,6 +40,11 @@ const BoardsListing = ({
       }
     </div>
   )
+}
+
+BoardsListing.propTypes = {
+  boards: PropTypes.array,
+  handleBoardItemClick: PropTypes.func,
 }
 
 export default BoardsListing;
